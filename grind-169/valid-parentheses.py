@@ -5,7 +5,7 @@ Open brackets must be closed in the correct order.
 Every close bracket has a corresponding open bracket of the same type.'''
 
 class Solution:
-    def isValid(self, s: str) -> bool:
+    def is_valid(self, s: str) -> bool:
         stack = []
         for char in s:
             if char == '(' or char == '{' or char == '[':
@@ -24,5 +24,5 @@ class Solution:
         return not stack
 
 s = "(){[[((((((()))))))]]}[]"
-soln = Solution().isValid(s)
+soln = Solution().is_valid(s)
 print(soln)

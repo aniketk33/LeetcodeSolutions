@@ -4,7 +4,7 @@ You can return the answer in any order.
 '''
 
 class Solution:
-    def twoSum(self, nums: list[int], target: int) -> list[int]:
+    def two_sum(self, nums: list[int], target: int) -> list[int]:
         map_nums = {}
         for i in range(len(nums)):
             # complement is the difference between target and the current number
@@ -16,5 +16,5 @@ class Solution:
 
 nums = [3,2,4]
 target = 6
-soln = Solution().twoSum(nums, target)
+soln = Solution().two_sum(nums, target)
 print(soln)
