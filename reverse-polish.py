@@ -26,6 +26,6 @@ def reverse_polish_notation(tokens_arr):
     return int(result_stack.pop())
 
 
-tokens = ["10","6","9","3","+","-11","*","/","*","17","+","5","+"]
+tokens = ["10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"]
 res = reverse_polish_notation(tokens)
 print(res)
