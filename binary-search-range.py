@@ -39,3 +39,5 @@ nums = [5, 7, 7, 8, 8, 10]
 target = 8
 result = binary_search_range(nums, target)
 print(result)
+if 3%2:
+    print('Howwww')
