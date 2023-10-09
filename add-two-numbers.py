@@ -12,7 +12,7 @@ def add_two_numbers(l1: ListNode, l2: ListNode):
     result_node = ListNode()
     current_node = result_node
     carry = 0
-    while l1 or l2 or carry:
+    while l1 or l2 or carry > 0:
         val1 = l1.val if l1 else 0
         val2 = l2.val if l2 else 0
         # get the addition
