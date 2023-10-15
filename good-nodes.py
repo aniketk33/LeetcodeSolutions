@@ -17,8 +17,8 @@ def good_nodes(root: TreeNode):
         total = 1 if node.val >= max_val else 0
         max_val = max(max_val, node.val)
 
-        total += good_nodes(node.left, max_val)
-        total += good_nodes(node.right, max_val)
+        total += dfs(node.left, max_val)
+        total += dfs(node.right, max_val)
 
         return total
 
