@@ -7,17 +7,17 @@ class TreeNode:
 
 
 def inorder_traversal(root: TreeNode):
-    """using stack data structure"""
-    bfs_stack = []
+    """using stack data structure as we are doing depth first search (dfs)"""
+    dfs_stack = []
     result = []
     curr_node = root
 
-    while curr_node or bfs_stack:
+    while curr_node or dfs_stack:
         while curr_node:
-            bfs_stack.append(curr_node)
+            dfs_stack.append(curr_node)
             curr_node = curr_node.left
 
-        curr_node = bfs_stack.pop()
+        curr_node = dfs_stack.pop()
         result.append(curr_node.val)
         curr_node = curr_node.right
 
