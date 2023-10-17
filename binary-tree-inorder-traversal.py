@@ -7,6 +7,7 @@ class TreeNode:
 
 
 def inorder_traversal(root: TreeNode):
+    """using stack data structure"""
     bfs_stack = []
     result = []
     curr_node = root
