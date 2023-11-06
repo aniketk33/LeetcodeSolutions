@@ -1,17 +1,11 @@
 # Definition for a binary tree node.
-import collections
-
-
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+from collections import deque
+from tree_node import TreeNode
 
 
 def level_order_traversal(root: TreeNode):
     result = []
-    bfs_queue = collections.deque()
+    bfs_queue = deque()
     # add the root node
     bfs_queue.append(root)
 

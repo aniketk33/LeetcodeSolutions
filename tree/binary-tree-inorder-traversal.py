@@ -1,13 +1,8 @@
-# Definition for a binary tree node.
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+from tree_node import TreeNode
 
 
 def inorder_traversal(root: TreeNode):
-    """using stack data structure as we are doing depth first search (dfs)"""
+    """using stack data structure as we are doing depth-first search (dfs)"""
     dfs_stack = []
     result = []
     curr_node = root

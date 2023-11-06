@@ -9,7 +9,7 @@ def merge_tree(left_tree: TreeNode, right_tree: TreeNode):
     right_val = right_tree.val if right_tree else 0
 
     root = TreeNode(left_val + right_val)
-    # if left or right tree is None it will cause an error while accessing the left_tree's or right_tree's left and
+    # if a left or right tree is None, it will cause an error while accessing the left_tree's or right_tree's left and
     # right tree respectively, so pass in None
     root.left = merge_tree(left_tree.left if left_tree else None, right_tree.left if right_tree else None)
     root.right = merge_tree(left_tree.right if left_tree else None, right_tree.right if right_tree else None)

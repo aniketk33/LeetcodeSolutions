@@ -1,18 +1,12 @@
 """Check FREEFORM for better understanding"""
 # Definition for a binary tree node.
-import collections
-
-
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+from collections import deque
+from tree_node import TreeNode
 
 
 def right_side_view(root: TreeNode):
     result = []
-    bfs_queue = collections.deque()
+    bfs_queue = deque()
     bfs_queue.append(root)
 
     while bfs_queue:

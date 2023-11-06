@@ -1,9 +1,4 @@
-# Definition for a binary tree node.
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+from tree_node import TreeNode
 
 
 def convert_to_bst(num_arr):
@@ -14,7 +9,7 @@ def convert_to_bst(num_arr):
         # calculate the mid-value and make it as root
         mid_idx = left_ptr + (right_ptr - left_ptr) // 2
         root = TreeNode(num_arr[mid_idx])
-        # recursive call on left and right sub-array
+        # recursive call on left and right subarray
         root.left = create_node(left_ptr, mid_idx - 1)
         root.right = create_node(mid_idx + 1, right_ptr)
 

@@ -1,12 +1,5 @@
 """refer FREEFORM for better understanding"""
-
-
-# Definition for a binary tree node.
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+from tree_node import TreeNode
 
 
 def is_same_tree(p: TreeNode, q: TreeNode):
@@ -25,7 +18,7 @@ def is_sub_tree(root: TreeNode, sub_root: TreeNode):
     # if subtree is empty then it is always true
     if not sub_root:
         return True
-    # if parent tree is empty then there cannot be any subtree, so return false
+    # if a parent tree is empty, then there cannot be any subtree, so return false
     if not root:
         return False
 
