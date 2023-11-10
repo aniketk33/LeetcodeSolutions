@@ -22,5 +22,5 @@ fi
 git add "$file_path"
 #commit to git with the given message
 git commit -m "'$message'"
-#push the changes
+#push the changes to git
 git push
