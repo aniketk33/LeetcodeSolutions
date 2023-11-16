@@ -1,10 +1,3 @@
-"""A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all
-non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and
-numbers.
-
-Given a string s, return true if it is a palindrome, or false otherwise."""
-
-
 def valid_palindrome(sentence: str):
     char_arr = list(sentence)
     char_arr_len = len(char_arr)
@@ -13,6 +6,7 @@ def valid_palindrome(sentence: str):
 
     left_ptr, right_ptr = 0, char_arr_len - 1
     while right_ptr >= left_ptr:
+        # skip if we encounter any alphanumeric chars
         if not char_arr[left_ptr].isalnum():
             left_ptr += 1
             continue
