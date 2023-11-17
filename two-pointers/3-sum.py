@@ -13,8 +13,8 @@ def three_sum(num_arr):
             if nums_sum == 0:
                 result.append([val, num_arr[left_ptr], num_arr[right_ptr]])
                 left_ptr += 1
-                # EDGE CASE: while shifting the left pointer if we encounter the same next value
-                # then we have to keep moving the left pointer until we find the next unique value
+                # EDGE CASE: while shifting the left pointer, if we encounter the same next value,
+                # we have to keep moving the left pointer until we find the next unique value
                 while num_arr[left_ptr] == num_arr[left_ptr - 1] and left_ptr < right_ptr:
                     left_ptr += 1
             elif nums_sum > 0:
