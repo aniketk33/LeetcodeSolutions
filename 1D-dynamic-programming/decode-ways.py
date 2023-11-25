@@ -37,8 +37,10 @@ def decode_digits(digits: str):
         if digits[start_idx] == '0':  # check if leading zeros are present
             return ways
 
-        ways += dfs(start_idx + 1)  # check for single digit
-        if 10 <= int(digits[start_idx:start_idx + 2]) <= 26:  # check for double digits
+        # call when encounter a single digit
+        ways += dfs(start_idx + 1)
+        # for double digits
+        if 10 <= int(digits[start_idx:start_idx + 2]) <= 26:
             ways += dfs(start_idx + 2)
 
         memo[start_idx] = ways
@@ -47,6 +49,22 @@ def decode_digits(digits: str):
     return dfs(0)
 
 
-d = '26'
-res = decode_digits(d)
+# bottom-up approach
+def decode_digits_2(digits):
+    memo = {len(digits): 1}
+    for i in range(len(digits) - 1, -1, -1):
+        # check if leading zeros
+        if digits[i] == "0":
+            memo[i] = 0
+        else:
+            memo[i] = memo[i + 1]
+
+        if i + 1 < len(digits) and (digits[i] == "1" or digits[i] == "2" and digits[i + 1] in "0123456"):
+            memo[i] += memo[i + 2]
+
+    return memo[0]
+
+
+d = '12'
+res = decode_digits_2(d)
 print(res)
