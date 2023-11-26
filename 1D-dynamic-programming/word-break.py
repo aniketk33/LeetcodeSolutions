@@ -13,27 +13,29 @@ from typing import List
 def word_break(words_arr: List[str], target: str):
     memo = {}  # for memoization
 
-    def dfs(start_idx):
-        if start_idx == len(target):
+    def dfs(curr_idx):
+        # check if the current index is equal to the target's length
+        if curr_idx == len(target):
             return True
 
-        if start_idx in memo:  # memoization
-            return memo[start_idx]
+        if curr_idx in memo:  # memoization
+            return memo[curr_idx]
 
         ans = False  # initial value
         for word in words_arr:
-            if target[start_idx:].startswith(word):
-                if dfs(start_idx + len(word)):
+            # if target[curr_idx:].startswith(word):
+            if target[curr_idx: curr_idx + len(word)] == word:
+                if dfs(curr_idx + len(word)):
                     ans = True
                     break
 
-        memo[start_idx] = ans
+        memo[curr_idx] = ans
         return ans
 
     return dfs(0)
 
 
-arr = ["leet", "code"]
+arr = ["neet", "leet", "code"]
 tar = 'leetcode'
 res = word_break(arr, tar)
 print(res)
