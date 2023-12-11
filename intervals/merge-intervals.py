@@ -19,5 +19,5 @@ def merge_intervals(intervals: List[List[int]]):
     return output
 
 
-res = merge_intervals([[1, 3], [2, 6], [8, 10], [15, 18]])
+res = merge_intervals([[1, 3], [2, 6], [8, 10], [15, 20]])
 print(res)
