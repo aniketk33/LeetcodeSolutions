@@ -11,7 +11,6 @@ def search(nums, target: int) -> int:
 
     return -1
 
-nums = [-1,0,3,5,9,12]
-target = 2
-result = search(nums, target)
+
+result = search([-1, 0, 3, 5, 9, 12], 2)
 print(result)
