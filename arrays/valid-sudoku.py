@@ -21,9 +21,9 @@ def valid_sudoku(board: List[List[str]]) -> bool:
                 return False
 
             # add the curr number in row, column and the grids
-            rows[curr_row].add(board[curr_row][curr_column])
-            columns[curr_column].add(board[curr_row][curr_column])
-            grids[(curr_row // 3, curr_column // 3)].add(board[curr_row][curr_column])
+            rows[curr_row].add(curr_val)
+            columns[curr_column].add(curr_val)
+            grids[(curr_row // 3, curr_column // 3)].add(curr_val)
 
     return True
 
