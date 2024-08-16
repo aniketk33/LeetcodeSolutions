@@ -33,5 +33,46 @@ def find_anagrams(s, p):
     return result
 
 
-res = find_anagrams('cbaebabacd', 'abc')
+def find_anagrams_2(original, check):
+    if len(check) > len(original):
+        return []
+
+    # create the check and current window counter
+    check_counter = [0] * 26
+    curr_window = [0] * 26
+
+    # update the check counter
+    for c in check:
+        location = ord(c) - ord('a')
+        check_counter[location] += 1
+
+    left, right = 0, len(check)
+    result = []
+
+    # for the first window
+    for c in original[left:right]:
+        location = ord(c) - ord('a')
+        curr_window[location] += 1
+    if curr_window == check_counter:
+        result.append(left)
+
+    while right < len(original):
+        # remove left
+        curr_window[ord(original[left]) - ord('a')] -= 1
+        # add right
+        curr_window[ord(original[right]) - ord('a')] += 1
+        # increment both the counters
+        left += 1
+        right += 1
+        # compare the arrays
+        if curr_window == check_counter:
+            result.append(left)
+
+    return result
+
+
+og = 'cbaebabacd'
+validate = 'abc'
+# res = find_anagrams(og, validate)
+res = find_anagrams_2(og, validate)
 print(res)
