@@ -1,5 +1,6 @@
 def subarray_sum(nums, k):
     result = 0
+    # the count of empty array is always 1, so we have initialized with 1
     sum_count_dict = {0: 1}
     curr_sum = 0
 
