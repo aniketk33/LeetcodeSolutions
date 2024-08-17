@@ -15,6 +15,7 @@ def substring(s):
 
     return count
 
+
 # constant space solution
 def substring_2(s):
     left, right = 0, 2
