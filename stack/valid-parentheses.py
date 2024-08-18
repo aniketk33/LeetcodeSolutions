@@ -24,6 +24,22 @@ def is_valid(s: str) -> bool:
     return not stack
 
 
+def is_valid_2(s):
+    valid_pairs = {'()', '[]', "{}"}
+    stack = []
+
+    for c in s:
+        # keep appending opening parentheses
+        if c in '({[':
+            stack.append(c)
+        # if the stack is empty or the pair is not found, then return false
+        elif not stack or stack.pop() + c not in valid_pairs:
+            return False
+
+    return not stack
+
+
 input_str = "(){[[((((((()))))))]]}[]"
-result = is_valid(input_str)
+# result = is_valid(input_str)
+result = is_valid_2(input_str)
 print(result)
