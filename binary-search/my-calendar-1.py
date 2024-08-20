@@ -21,7 +21,6 @@ class MyCalendar:
                 left = mid + 1
 
         # checking for overlapping condition
-
         # if half is for start time and the other half is for end time
         if (result > 0 and self.calendar[result - 1][1] > start) or (
                 result < len(self.calendar) and self.calendar[result][0] < end):
