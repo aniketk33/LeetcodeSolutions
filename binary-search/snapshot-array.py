@@ -1,18 +1,19 @@
 class SnapshotArray:
 
     def __init__(self, length: int):
+        # creating a history array with snap ids and value for every index
         self.histories = []
-        self.snap_count = 0
+        self.snap_id = 0
         for _ in range(length):
-            # create a list of (snap_id (index), value) for each index
             self.histories.append([[-1, 0]])
 
     def set(self, index: int, val: int) -> None:
-        self.histories[index].append([self.snap_count, val])
+        # set the current snap and the value for the given index
+        self.histories[index].append([self.snap_id, val])
 
     def snap(self) -> int:
-        self.snap_count += 1
-        return self.snap_count - 1
+        self.snap_id += 1
+        return self.snap_id - 1
 
     def get(self, index: int, snap_id: int) -> int:
         left, right = 0, len(self.histories[index]) - 1
@@ -20,6 +21,8 @@ class SnapshotArray:
 
         while left <= right:
             mid = left + (right - left) // 2
+            # we have to store the latest value for the given snap id, so moving the left pointer towards the latest
+            # value
             if self.histories[index][mid][0] <= snap_id:
                 result = mid
                 left = mid + 1
@@ -28,8 +31,11 @@ class SnapshotArray:
 
         return self.histories[index][result][1]
 
-# Your SnapshotArray object will be instantiated and called as such:
-# obj = SnapshotArray(length)
-# obj.set(index,val)
-# param_2 = obj.snap()
-# param_3 = obj.get(index,snap_id)
+    # Your SnapshotArray object will be instantiated and called as such:
+
+
+obj = SnapshotArray(3)
+obj.set(0, 5)
+param_2 = obj.snap()
+param_3 = obj.get(0, 0)
+print(param_2, param_3)
