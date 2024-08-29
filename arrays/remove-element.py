@@ -10,5 +10,26 @@ def remove_element(nums, val):
     return left_ptr
 
 
+def remove_element_2(nums, val):
+    left, right = 0, 0
+
+    while right < len(nums):
+        if nums[left] != val:
+            left += 1
+            right += 1
+        else:
+            # get the next value not eq val
+            while right < len(nums) and nums[right] == val:
+                right += 1
+            if len(nums) == right:
+                return left
+            nums[left], nums[right] = nums[right], nums[left]
+            left += 1
+            right = left
+
+    return left
+
+
 res = remove_element([0, 1, 2, 2, 3, 0, 4, 2], 2)
+# res = remove_element_2([2], 3)
 print(res)
