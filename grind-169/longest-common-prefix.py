@@ -1,17 +1,21 @@
-def longest_common_prefix(str_arr):
-    if len(str_arr) == 1:
-        return str_arr[0]
+def longest_common_prefix(strs):
+    if len(strs) == 1:
+        return strs[0]
+
+    first_word = strs[0]
     result = ''
-    for i in range(len(str_arr[0])):
-        for s in str_arr:
-            if len(s) == i or str_arr[0][i] != s[i]:
+
+    # iterate over the first word and compare it with the other words, char by char
+    for i in range(len(first_word)):
+        for word in strs:
+            if len(word) == i or first_word[i] != word[i]:
                 return result
 
-        result += str_arr[0][i]
+        result += first_word[i]
 
     return result
 
 
-strs = ["flower", "flow", "flight"]
-res = longest_common_prefix(strs)
+arr = ["flower", "flow", "flight"]
+res = longest_common_prefix(arr)
 print(res)
