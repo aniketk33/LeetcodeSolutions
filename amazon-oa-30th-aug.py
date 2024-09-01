@@ -29,10 +29,10 @@ def max_quality(packets, channels):
     # get the median from the remaining items in the list
     remaining_packets = packets[:start_idx]
     mid_idx = len(remaining_packets) // 2
-    if mid_idx % 2 == 0:
+    if mid_idx % 2 == 1:
         median = remaining_packets[mid_idx]
     else:
-        median = (remaining_packets[mid_idx] + remaining_packets[mid_idx - 1]) // 2
+        median = (remaining_packets[mid_idx] + remaining_packets[mid_idx - 1]) / 2
         median = math.ceil(median)
 
     max_sum += median
@@ -40,7 +40,25 @@ def max_quality(packets, channels):
     return max_sum
 
 
+def max_quality_2(packets, channels):
+    packets.sort()
+    max_sum = 0
+
+    while channels > 1:
+        max_sum += packets.pop()
+        channels -= 1
+    mid = len(packets) // 2
+    if mid % 2 == 1:
+        median = packets[mid]
+    else:
+        median = math.ceil((packets[mid] + packets[mid - 1]) / 2)
+    max_sum += median
+
+    return max_sum
+
+
 res = max_quality([1, 2, 3, 4, 5], 2)
+# res = max_quality_2([1, 2, 3, 4, 5], 5)
 print(res)
 
 """To promote physical fitness, on the portal they launched a "GetFit" tournament consisting of n sprints. Each 
