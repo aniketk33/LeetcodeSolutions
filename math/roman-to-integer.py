@@ -32,6 +32,21 @@ def roman_to_int(s):
     return result
 
 
+def roman_to_int_2(s):
+    result = 0
+    prev = s[-1]
+    for i in range(len(s)-1, -1, -1):
+        curr = s[i]
+        if sym_val_dict[prev] > sym_val_dict[curr]:
+            result -= sym_val_dict[curr]
+        else:
+            result += sym_val_dict[curr]
+        prev = curr
+
+    return result
+
+
 input_s = "III"
-res = roman_to_int(input_s)
+# res = roman_to_int(input_s)
+res = roman_to_int_2(input_s)
 print(res)
