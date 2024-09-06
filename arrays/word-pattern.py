@@ -20,5 +20,24 @@ def word_pattern(pattern, s):
     return True
 
 
-res = word_pattern('abba', 'dog cat cat dog')
+def word_pattern_2(pattern, s):
+    words = s.split(' ')
+    # this set creation avoids extra dictionary
+    if len(set(pattern)) != len(set(words)):
+        return False
+
+    pattern_dict = {}
+    curr_idx = 0
+
+    for i in range(len(pattern)):
+        if pattern[i] in pattern_dict and pattern_dict[pattern[i]] != words[i]:
+            return False
+        pattern_dict[pattern[i]] = words[i]
+        curr_idx += 1
+
+    return curr_idx == len(words)
+
+
+# res = word_pattern('abba', 'dog cat cat dog')
+res = word_pattern_2('abba', 'dog cat cat dog')
 print(res)
