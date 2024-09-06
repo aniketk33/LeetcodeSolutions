@@ -1,3 +1,6 @@
+from collections import defaultdict
+
+
 class ListNode:
     def __init__(self, key):
         self.key = key
@@ -62,6 +65,20 @@ class MyHashSet:
                 return True
             curr = curr.next
         return False
+
+
+class MyHashSet_2:
+    def __init__(self):
+        self.hash_set = defaultdict(int)
+
+    def add(self, key):
+        self.hash_set[key] = True
+
+    def remove(self, key):
+        self.hash_set[key] = False
+
+    def contains(self, key):
+        return self.hash_set[key]
 
 # Your MyHashSet object will be instantiated and called as such:
 # obj = MyHashSet()
