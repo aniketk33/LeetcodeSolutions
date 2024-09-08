@@ -6,12 +6,12 @@ def daily_temperatures(temp_arr):
     stack = []
     for index, temp in enumerate(temp_arr):
         # to check whether the stack is empty and last added temp is greater than current
-        while stack and temp > stack[-1][0]:
-            _, idx = stack.pop()
+        while stack and temp > temp_arr[stack[-1]]:
+            idx = stack.pop()
             diff = index - idx
             result[idx] = diff
 
-        stack.append([temp, index])
+        stack.append(index)
 
     return result
 
