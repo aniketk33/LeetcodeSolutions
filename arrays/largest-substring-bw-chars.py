@@ -11,6 +11,7 @@ def largest_substring(s):
     return count
 
 
+# Optimal solution O(n)
 def largest_substring_2(s):
     char_location = {}
     dist = -1
