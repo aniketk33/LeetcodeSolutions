@@ -1,12 +1,3 @@
-"""66. You are given a large integer represented as an integer array digits, where each digits[i] is the ith digit of the integer. The digits are ordered from most significant to least significant in left-to-right order. The large integer does not contain any leading 0's. Increment the large integer by one and return the resulting array of digits.
-Input: digits = [1,2,3]
-Output: [1,2,4]
-Explanation: The array represents the integer 123.
-Incrementing by one gives 123 + 1 = 124.
-Thus, the result should be [1,2,4].
-"""
-
-
 def plus_one(digits_arr):
     arr_len = len(digits_arr)
     carry = 0
@@ -26,7 +17,30 @@ def plus_one(digits_arr):
         if carry:
             digits_arr.insert(0, carry)
 
+    return digits_arr
 
-arr = [9, 9, 9]
-plus_one(arr)
-print(arr)
+
+def plus_one_2(digits):
+    carry = 1
+    digits.reverse()
+    idx = 0
+
+    while carry:
+        if idx < len(digits):
+            if digits[idx] == 9:
+                digits[idx] = 0
+            else:
+                digits[idx] += 1
+                carry = 0
+            idx += 1
+        else:
+            digits.append(1)
+            carry = 0
+    digits.reverse()
+
+    return digits
+
+
+# res = plus_one([9, 9, 9])
+res = plus_one_2([9, 9, 9])
+print(res)
