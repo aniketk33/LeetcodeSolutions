@@ -14,6 +14,19 @@ class StockSpanner:
 
         return span_count
 
+    # this is also a solution but time limits exceeds
+    def next_2(self, price):
+        count = 1
+        n = len(self.stocks)
+
+        for i in range(n - 1, -1, -1):
+            if self.stocks[i] > price:
+                break
+            count += 1
+
+        self.stocks.append(price)
+        return count
+
 # Your StockSpanner object will be instantiated, and called as such:
 # obj = StockSpanner()
 # param_1 = obj.next(price)
