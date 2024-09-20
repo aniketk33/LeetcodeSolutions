@@ -18,5 +18,25 @@ def collision(asteroids):
     return stack
 
 
-res = collision([5, 10, -5])
+def collision_2(asteroids):
+    result = []
+
+    for asteroid in asteroids:
+        # check for collision
+        while result and asteroid < 0 < result[-1]:
+            # keep popping the element if it is smaller than current val
+            if result[-1] < -asteroid:
+                result.pop()
+                continue
+            elif result[-1] == -asteroid:
+                result.pop()
+            break
+        else:
+            result.append(asteroid)
+
+    return result
+
+
+# res = collision([5, 10, -5])
+res = collision_2([5, 10, -5])
 print(res)
