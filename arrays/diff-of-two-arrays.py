@@ -30,5 +30,11 @@ def diff(nums1, nums2):
     return [list(diff1), list(diff2)]
 
 
+# optimal solution
+def diff_2(nums1, nums2):
+    nums1set, nums2set = set(nums1), set(nums2)
+    return [list(nums1set - nums2set), list(nums2set - nums1set)]
+
+
 res = diff([1, 2, 3], [2, 4, 6])
 print(res)
