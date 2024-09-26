@@ -1,14 +1,6 @@
-"""1.Two strings are said to be similar if they are composed of the same characters. For example, "abaca" and "cba"
-are similar since both of them are composed of characters 'a', 'b' and 'c'. However, "abaca" and "bcd" are not
-similar since they do not share all the same letters. Given an array of strings words of length n, find the number
-of pairs of strings that are similar. Note: • Each string is composed of lowercase English characters only. • Pairs
-are considered index-wise, i.e., two equal strings at different indices are counted as separated pairs. • A pair at
-indices (i, j) is the same as the pair at (, i). Example Consider n = 3, words = ["xyz", "foo", "of"]. Here,
-the strings "foo" and "of" are similar because they are composed of the same characters ['o', 'f']. There are no
-other similar pairs, so the answer is 1.
-
-Words = ["aba", "abaca", "baab", "cba"]
-output = 2
+"""
+I had to write a functions to return the number of similar words. For example, words = ["xyz", "foo", "of"].
+Here, the strings "foo" and "of" are similar because they are composed of the same characters 'o' and 'f'
 """
 from collections import defaultdict
 from heapq import heapify, heappop, heappush
@@ -47,16 +39,14 @@ def count_pairs_2(words):
 res1 = count_pairs_2(["aba", "abaca", "baab", "cba"])
 print(res1)
 
-"""2. In a neural network, there are n layers, each with computational time represented by the array 
-computationalTime. Developers are provided with an operation where they can select all layers with computation time 
-c, an even integer. They then adjust parameters, reducing the processing time of these layers from cto c / 2. The 
-task is to determine the minimum number of operations needed to ensure that the computational time of all layers is 
-odd. Example n=4 computationalTime = [2, 4, 8, 16] The optimal approach is: • Choose c = 16 and reduce the 
-computation time of layer 4 to 8. Thus, computationalTime = [2, 4, 8, 8]. • Choose c = 8 and reduce the computation 
-time of layers 3 and 4 to 4. Thus, computationalTime = [2, 4, 4, 4]. • Choose c = 4 and reduce the computation time 
-of layers 2, 3 and 4 to 2. Thus, computationalTime = [2, 2, 2, 2]. • Choose c = 2 and reduce the computation time of 
-all the layers to 1. Thus, computationalTime = [1, 1, 1, 1]. The number of operations applied = 4. Thus, the answer 
-returned is 4."""
+"""
+I need to make the array with all odd computation time by performing operations on the max element first and 
+divide it into half everytime. For example, computationalTime = [2, 4, 8, 16] 
+1st iteration: consider 16, so it will become [2, 4, 8, 8], 
+2nd iteration: consider 8 -> [2,4,4,4], 
+next consider 4 -> [2,2,2,2]
+finally consider 2 -> [1,1,1,1]. All the values are odd, return the count of operations required to make them odd. 
+"""
 
 
 def count_operations(computation_time):
