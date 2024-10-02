@@ -23,6 +23,37 @@ def duplicate_number(num_arr):
             return slow_ptr
 
 
+# refer linked list cycle to understand better
+# constant space solution
+def duplicate_number_2(nums):
+    head = 0
+    slow = nums[head]
+    fast = nums[nums[head]]
+
+    # detect a cycle
+    while slow != fast:
+        slow = nums[slow]
+        fast = nums[nums[fast]]
+
+    # reset the slow pointer
+    slow = head
+    while slow != fast:
+        slow = nums[slow]
+        fast = nums[fast]
+
+    return slow
+
+
+# extra space solution
+def duplicate_number_3(nums):
+    visited = set()
+    for n in nums:
+        if n in visited:
+            return n
+        visited.add(n)
+
+
 arr = [1, 3, 4, 2, 2]
-res = duplicate_number(arr)
+# res = duplicate_number(arr)
+res = duplicate_number_2(arr)
 print(res)
