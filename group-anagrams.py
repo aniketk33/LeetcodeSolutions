@@ -17,6 +17,18 @@ def group_anagrams(words):
     return char_count_dict.values()
 
 
+def group_anagrams_2(words):
+    anagrams = defaultdict(list)
+
+    for word in words:
+        # sort the given word and use it as the key
+        key = ''.join(sorted(word))
+        anagrams[key].append(word)
+
+    return anagrams.values()
+
+
 strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
-res = group_anagrams(strs)
+# res = group_anagrams(strs)
+res = group_anagrams_2(strs)
 print(res)
