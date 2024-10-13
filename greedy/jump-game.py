@@ -10,5 +10,22 @@ def can_jump(nums):
     return target == 0
 
 
-res = can_jump([2, 3, 1, 1, 4])
+def can_jump_2(nums):
+    gas = 0
+
+    for curr_gas in nums:
+        # if we ran out of gas
+        if gas < 0:
+            return False
+        # refuel the gas with higher value
+        if curr_gas > gas:
+            gas = curr_gas
+        # decrease the gas by one at every iteration
+        gas -= 1
+
+    return True
+
+
+# res = can_jump([2, 3, 1, 1, 4])
+res = can_jump_2([2, 3, 1, 1, 4])
 print(res)
