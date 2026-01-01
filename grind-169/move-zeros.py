@@ -1,15 +1,26 @@
-def move_zeros(num_arr):
+def move_zeros(arr):
     i = 0
-    for num in num_arr:
+    for num in arr:
         if num != 0:
-            num_arr[i] = num
+            arr[i] = num
             i += 1
 
-    while i < len(num_arr):
-        num_arr[i] = 0
+    while i < len(arr):
+        arr[i] = 0
         i += 1
 
 
-num_arr = [0,1,0,3,12]
-move_zeros(num_arr)
+def move_zeros_2(arr):
+    slow = fast = 0
+    while fast < len(arr):
+        # keep moving fast until non-zero value
+        if arr[fast] != 0:
+            arr[slow], arr[fast] = arr[fast], arr[slow]
+            slow += 1
+        fast += 1
+
+
+num_arr = [1, 0, 1]
+# move_zeros(num_arr)
+move_zeros_2(num_arr)
 print(num_arr)
